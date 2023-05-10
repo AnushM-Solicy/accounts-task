@@ -4,7 +4,6 @@ import { useParams } from "react-router-dom"
 export default function SingleAccount() {
     const { id } = useParams()
     const [singleAccount, setSingleAccount] = useState({})
-    const [accountFound, setAccountFound] = useState(true)
     const baseUrl = process.env.REACT_APP_API_BASE_URL
 
     useEffect(() => {
@@ -13,11 +12,11 @@ export default function SingleAccount() {
             .then(userData => setSingleAccount(userData))
             .catch(err => {
                 console.error("error fetching account", err)
-                setAccountFound(false)
+                setSingleAccount(null)
             })
     }, [])
 
-    if (accountFound) {
+    if (singleAccount) {
         return (
             <table>
                 <tr>
@@ -41,7 +40,7 @@ export default function SingleAccount() {
                 </tr>
             </table>
         )
-    } else if (!accountFound) {
+    } else if (singleAccount === null) {
         return (
             <h1>Account not found</h1>
         )

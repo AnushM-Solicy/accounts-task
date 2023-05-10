@@ -9,6 +9,11 @@ function App() {
       <Routes>
         <Route
           exact
+          path="/"
+          element={<MainContent />}
+        />
+        <Route
+          exact
           path="/accounts"
           element={<MainContent />}
         />
