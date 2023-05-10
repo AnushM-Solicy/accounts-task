@@ -1,17 +1,16 @@
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import './App.css';
-import MainContent from './components/MainContent';
+import MainContent from './components/Accounts';
 import SingleAccount from './components/SingleAccount'
-
+import './App.css';
 
 function App() {
-   return (
+  return (
     <Router >
       <Routes>
         <Route
           exact
           path="/accounts"
-          element={<MainContent  />}
+          element={<MainContent />}
         />
         <Route
           path={`/accounts/:id`}
